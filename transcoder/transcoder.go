@@ -105,7 +105,7 @@ func (t *Transcoder) Initialize(inputPath string, outputPath string, remote bool
 		}
 	}
 
-	command := []string{"-i", inputPath, "-print_format", "json", "-show_format", "-show_streams", "-show_error"}
+	command := []string{"-i", fmt.Sprintf("%s", inputPath), "-print_format", "json", "-show_format", "-show_streams", "-show_error"}
 
 	cmd := exec.Command(cfg.FfprobeBin, command...)
 	cmd.Stdout = &out
