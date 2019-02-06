@@ -107,18 +107,6 @@ func (t *Transcoder) Initialize(inputPath string, outputPath string, remote bool
 
 	command := []string{"-i", fmt.Sprintf("\"%s\"", inputPath), "-print_format", "json", "-show_format", "-show_streams", "-show_error"}
 
-	cmd := exec.Command(cfg.FfprobeBin, command...)
-	cmd.Stdout = &out
-
-	err = cmd.Run()
-	if err != nil {
-		return fmt.Errorf("error executing (%s) | error: %s", command, err)
-	}
-
-	if err = json.Unmarshal([]byte(out.String()), &Metadata); err != nil {
-		return err
-	}
-
 	// Set new Mediafile
 	MediaFile := new(models.Mediafile)
 	MediaFile.SetMetadata(Metadata)
