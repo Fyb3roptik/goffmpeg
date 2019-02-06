@@ -3,7 +3,7 @@ package transcoder
 import (
 	"bufio"
 	"bytes"
-	"encoding/json"
+	// "encoding/json"
 	"errors"
 	"fmt"
 	"io"
