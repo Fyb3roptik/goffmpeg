@@ -34,8 +34,8 @@ func main() {
 	// Create new instance of transcoder
     	trans := new(transcoder.Transcoder)
 
-	// Initialize transcoder passing the input file path and output file path
-    	err := trans.Initialize( inputPath, outputPath )
+	// Initialize transcoder passing the input file path and output file path and if the files are remote or local
+    	err := trans.Initialize( inputPath, outputPath, remote_file )
     	// Handle error...
 
 	// Start transcoder process without checking progress
@@ -55,8 +55,8 @@ func main() {
 	// Create new instance of transcoder
     	trans := new(transcoder.Transcoder)
 
-	// Initialize transcoder passing the input file path and output file path
-    	err := trans.Initialize( inputPath, outputPath )
+      // Initialize transcoder passing the input file path and output file path and if the files are remote or local
+        	err := trans.Initialize( inputPath, outputPath, remote_file )
     	// Handle error...
 
 	// Start transcoder process with progress checking
@@ -140,8 +140,8 @@ func main() {
 	// Create new instance of transcoder
 	trans := new(transcoder.Transcoder)
 
-	// Initialize transcoder passing the input file path and output file path
-	err := trans.Initialize( inputPath, outputPath )
+  // Initialize transcoder passing the input file path and output file path and if the files are remote or local
+    	err := trans.Initialize( inputPath, outputPath, remote_file )
 	// Handle error...
 
 	// SET FRAME RATE TO MEDIAFILE

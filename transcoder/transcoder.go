@@ -80,7 +80,7 @@ func (t Transcoder) GetCommand() []string {
 }
 
 // Initialize Init the transcoding process
-func (t *Transcoder) Initialize(inputPath string, outputPath string) error {
+func (t *Transcoder) Initialize(inputPath string, outputPath string, remote bool) error {
 	var err error
 	var out bytes.Buffer
 	var Metadata models.Metadata
@@ -98,9 +98,11 @@ func (t *Transcoder) Initialize(inputPath string, outputPath string) error {
 		return errors.New("error on transcoder.Initialize: inputPath missing")
 	}
 
-	_, err = os.Stat(inputPath)
-	if os.IsNotExist(err) {
-		return errors.New("error on transcoder.Initialize: input file not found")
+	if remote == false {
+		_, err = os.Stat(inputPath)
+		if os.IsNotExist(err) {
+			return errors.New("error on transcoder.Initialize: input file not found")
+		}
 	}
 
 	command := []string{"-i", inputPath, "-print_format", "json", "-show_format", "-show_streams", "-show_error"}
