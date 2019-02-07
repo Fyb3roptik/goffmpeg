@@ -123,7 +123,7 @@ func (t *Transcoder) Initialize(inputPath string, outputPath string, remote bool
 	MediaFile := new(models.Mediafile)
 	// MediaFile.SetMetadata(Metadata)
 	MediaFile.SetInputPath(fmt.Sprintf("\"%s\"", inputPath))
-	MediaFile.SetOutputPath(outputPath)
+	MediaFile.SetOutputPath(fmt.Sprintf("\"%s\"", outputPath))
 	// Set transcoder configuration
 
 	t.SetMediaFile(MediaFile)
